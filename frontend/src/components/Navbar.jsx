@@ -1,14 +1,16 @@
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { assets } from "../assets/assets";
-import { useState } from "react";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
 
   return (
     <div className="flex items-center justify-between py-5 font-medium">
+      {/* Left section */}
       <img src={assets.logo} className="w-36" alt="" />
 
+      {/* Middle section */}
       <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
         <NavLink to="/" className="flex flex-col items-center gap-1">
           <p>HOME</p>
@@ -28,6 +30,7 @@ const Navbar = () => {
         </NavLink>
       </ul>
 
+      {/* Right section */}
       <div className="flex items-center gap-6">
         <img src={assets.search_icon} className="w-5 cursor-pointer" alt="" />
         <div className="group relative">
