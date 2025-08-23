@@ -1,12 +1,10 @@
-import React from "react";
-
 const NewsLetterbox = () => {
   const onSubmitHandler = (e) => {
     e.preventDefault();
   };
 
   return (
-    <div className="text-center">
+    <div className="text-center mt-7">
       <p className="text-2xl font-medium text-gray-700">
         Subscribe now & get 20% off
       </p>

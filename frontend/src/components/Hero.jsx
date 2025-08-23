@@ -1,5 +1,4 @@
 import { assets } from "../assets/assets";
-import React from "react";
 
 const Hero = () => {
   return (
