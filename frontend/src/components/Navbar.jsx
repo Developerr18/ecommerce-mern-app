@@ -5,7 +5,7 @@ import { ShopContext } from "../context/ShopContext";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
-  const { setShowSearchbar, getCartCount } = useContext(ShopContext);
+  const { setShowSearchbar, getCartCount, navigate } = useContext(ShopContext);
 
   return (
     <div className="flex items-center justify-between py-5 font-medium">
@@ -36,13 +36,14 @@ const Navbar = () => {
 
       {/* Right section */}
       <div className="flex items-center gap-6">
-        <Link to="/collection">
-          <img
-            onClick={() => setShowSearchbar(true)}
-            src={assets.search_icon}
-            className="w-5 cursor-pointer"
-          />
-        </Link>
+        <img
+          onClick={() => {
+            setShowSearchbar(true);
+            navigate("/collection");
+          }}
+          src={assets.search_icon}
+          className="w-5 cursor-pointer"
+        />
         <div className="group relative">
           <img className="w-5 cursor-pointer" src={assets.profile_icon} />
           <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
