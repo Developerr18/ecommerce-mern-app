@@ -86,7 +86,12 @@ const Cart = () => {
           <div className="w-full text-end">
             <button
               onClick={() => navigate("/place-order")}
-              className="bg-black text-white text-sm my-8 px-8 py-3 rounded cursor-pointer"
+              disabled={cartData.length === 0}
+              className={`text-sm my-8 px-8 py-3 rounded transition ${
+                cartData.length === 0
+                  ? "bg-gray-400 text-gray-200 cursor-not-allowed"
+                  : "bg-black text-white cursor-pointer hover:bg-gray-800"
+              }`}
             >
               PROCEED TO CHECKOUT
             </button>
