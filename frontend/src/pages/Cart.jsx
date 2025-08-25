@@ -57,6 +57,7 @@ const Cart = () => {
                   </div>
                 </div>
               </div>
+
               <input
                 className="border border-slate-300 max-w-10 sm:max-w-20 px-1 sm:px-2 py-1"
                 type="number"
@@ -68,6 +69,7 @@ const Cart = () => {
                     : updateCart(item._id, item.size, Number(e.target.value))
                 }
               />
+
               <img
                 className="w-4 sm:w-5 cursor-pointer"
                 src={assets.bin_icon}
