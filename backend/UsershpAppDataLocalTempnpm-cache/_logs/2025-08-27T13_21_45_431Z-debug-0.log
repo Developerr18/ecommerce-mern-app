@@ -7,6 +7,7 @@
 6 silly config load:file:C:\Users\hp\AppData\Roaming\npm\etc\npmrc
 7 verbose title npm run server
 8 verbose argv "run" "server"
-9 verbose logfile logs-max:10 dir:C:\Users\hp\Desktop\Web-dev\MyProject\ecommerce-mern\backend\UsershpAppDataLocalTempnpm-cache\_logs\2025-08-26T15_15_53_277Z-
-10 verbose logfile C:\Users\hp\Desktop\Web-dev\MyProject\ecommerce-mern\backend\UsershpAppDataLocalTempnpm-cache\_logs\2025-08-26T15_15_53_277Z-debug-0.log
-11 silly logfile done cleaning log files
+9 verbose logfile logs-max:10 dir:C:\Users\hp\Desktop\Web-dev\MyProject\ecommerce-mern\backend\UsershpAppDataLocalTempnpm-cache\_logs\2025-08-27T13_21_45_431Z-
+10 verbose logfile C:\Users\hp\Desktop\Web-dev\MyProject\ecommerce-mern\backend\UsershpAppDataLocalTempnpm-cache\_logs\2025-08-27T13_21_45_431Z-debug-0.log
+11 silly logfile start cleaning logs, removing 1 files
+12 silly logfile done cleaning log files

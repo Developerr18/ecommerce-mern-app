@@ -12,6 +12,7 @@ const productRouter = express.Router();
 // Product Routes
 productRouter.get("/list", getProducts);
 
+// Create Route to Upload files with Upload middleware
 productRouter.post(
   "/add",
   upload.fields([
