@@ -46,7 +46,7 @@ const addProduct = async (req, res) => {
       date: Date.now(),
     };
 
-    // Create and save a new product document in MongoDB
+    // Create and save a new product to document in MongoDB
     const product = new ProductModel(productData);
     await product.save();
     res.json({ success: true, message: "Product Added" });
@@ -56,9 +56,25 @@ const addProduct = async (req, res) => {
   }
 };
 
-const getProducts = (req, res) => {};
+const getProducts = async (req, res) => {
+  try {
+    const products = await ProductModel.find({});
+    res.json({ success: true, products });
+  } catch (err) {
+    console.log(err);
+    res.json({ success: false, message: err.message });
+  }
+};
 
-const removeProduct = (req, res) => {};
+const removeProduct = async (req, res) => {
+  try {
+    await ProductModel.findByIdAndDelete(req.body.id);
+    res.json({ success: true, message: "Product Removed" });
+  } catch (err) {
+    console.log(err);
+    res.json({ success: false, message: err.message });
+  }
+};
 
 const singleProduct = (req, res) => {};
 

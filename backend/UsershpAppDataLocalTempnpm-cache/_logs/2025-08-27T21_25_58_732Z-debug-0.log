@@ -7,8 +7,8 @@
 6 silly config load:file:C:\Users\hp\AppData\Roaming\npm\etc\npmrc
 7 verbose title npm run server
 8 verbose argv "run" "server"
-9 verbose logfile logs-max:10 dir:C:\Users\hp\Desktop\Web-dev\MyProject\ecommerce-mern\backend\UsershpAppDataLocalTempnpm-cache\_logs\2025-08-26T16_47_35_513Z-
-10 verbose logfile C:\Users\hp\Desktop\Web-dev\MyProject\ecommerce-mern\backend\UsershpAppDataLocalTempnpm-cache\_logs\2025-08-26T16_47_35_513Z-debug-0.log
+9 verbose logfile logs-max:10 dir:C:\Users\hp\Desktop\Web-dev\MyProject\ecommerce-mern\backend\UsershpAppDataLocalTempnpm-cache\_logs\2025-08-27T21_25_58_732Z-
+10 verbose logfile C:\Users\hp\Desktop\Web-dev\MyProject\ecommerce-mern\backend\UsershpAppDataLocalTempnpm-cache\_logs\2025-08-27T21_25_58_732Z-debug-0.log
 11 silly logfile start cleaning logs, removing 1 files
 12 silly logfile done cleaning log files
 13 verbose cwd C:\Users\hp\Desktop\Web-dev\MyProject\ecommerce-mern\backend
@@ -17,4 +17,4 @@
 16 verbose npm  v11.5.1
 17 verbose exit 1
 18 verbose code 1
-19 error A complete log of this run can be found in: C:\Users\hp\Desktop\Web-dev\MyProject\ecommerce-mern\backend\UsershpAppDataLocalTempnpm-cache\_logs\2025-08-26T16_47_35_513Z-debug-0.log
+19 error A complete log of this run can be found in: C:\Users\hp\Desktop\Web-dev\MyProject\ecommerce-mern\backend\UsershpAppDataLocalTempnpm-cache\_logs\2025-08-27T21_25_58_732Z-debug-0.log
