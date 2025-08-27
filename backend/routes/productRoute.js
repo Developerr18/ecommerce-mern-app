@@ -4,8 +4,8 @@ import {
   getProducts,
   removeProduct,
   singleProduct,
-} from "../controllers/productController";
-import upload from "../middleware/multer";
+} from "../controllers/productController.js";
+import upload from "../middleware/multer.js";
 
 const productRouter = express.Router();
 
