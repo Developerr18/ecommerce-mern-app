@@ -4,7 +4,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 const createToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET);
+  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "7d" });
 };
 
 /////////////////////////////////////////////
@@ -16,20 +16,22 @@ const loginUser = async (req, res) => {
     // checking, is user exists or not
     const user = await UserModel.findOne({ email });
     if (!user) {
-      return res.json({ success: false, message: "User doesn't exists" });
+      return res
+        .status(404)
+        .json({ success: false, message: "User doesn't exists" });
     }
 
     // compare entered password with db stored password
     const isPasswordMatched = await bcrypt.compare(password, user.password);
     if (isPasswordMatched) {
       const token = createToken(user._id);
-      res.json({ success: true, token });
+      res.status(200).json({ success: true, token });
     } else {
-      res.json({ success: false, message: "Invalid credentials" });
+      res.status(401).json({ success: false, message: "Invalid credentials" });
     }
   } catch (err) {
     console.log(err);
-    res.json({ success: false, message: err.message });
+    res.status(500).json({ success: false, message: "Server error" });
   }
 };
 
@@ -42,18 +44,20 @@ const registerUser = async (req, res) => {
     // checking if user already exists or not
     const isUserExists = await UserModel.findOne({ email });
     if (isUserExists) {
-      return res.json({ success: false, message: "User already exists!" });
+      return res
+        .status(409)
+        .json({ success: false, message: "User already exists!" });
     }
 
     // validating email format & strong password
     if (!validator.isEmail(email)) {
-      return res.json({
+      return res.status(400).json({
         success: false,
         message: "Please enter a valid email",
       });
     }
     if (password.length < 8) {
-      return res.json({
+      return res.status(400).json({
         success: false,
         message: "Please enter a strong password",
       });
@@ -69,10 +73,10 @@ const registerUser = async (req, res) => {
     });
     const user = await newUser.save();
     const token = createToken(user._id);
-    res.json({ success: true, token });
+    res.status(201).json({ success: true, token });
   } catch (err) {
     console.error(err);
-    res.json({ success: false, message: err.message });
+    res.status(500).json({ success: false, message: "Server error" });
   }
 };
 
@@ -86,13 +90,13 @@ const adminLogin = async (req, res) => {
       password === process.env.ADMIN_PASSWORD
     ) {
       const token = jwt.sign(email + password, process.env.JWT_SECRET);
-      res.json({ success: true, token });
+      res.status(200).json({ success: true, token });
     } else {
-      res.json({ success: false, message: "Invalid Credentials" });
+      res.status(401).json({ success: false, message: "Invalid Credentials" });
     }
   } catch (err) {
     console.log(err);
-    res.json({ success: false, message: err.message });
+    res.status(500).json({ success: false, message: "Server error" });
   }
 };
 
