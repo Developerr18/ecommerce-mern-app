@@ -19,7 +19,7 @@ const loginUser = async (req, res) => {
       return res.json({ success: false, message: "User doesn't exists" });
     }
 
-    // compare password with db stored password
+    // compare entered password with db stored password
     const isPasswordMatched = await bcrypt.compare(password, user.password);
     if (isPasswordMatched) {
       const token = createToken(user._id);
