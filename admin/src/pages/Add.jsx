@@ -257,7 +257,7 @@ const Add = ({ token }) => {
           >
             <p
               className={`${
-                sizes.includes("XXl") ? "bg-pink-100" : "bg-slate-200"
+                sizes.includes("XXL") ? "bg-pink-100" : "bg-slate-200"
               } px-3 py-1 cursor-pointer`}
             >
               XXL
