@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { assets } from "../assets/assets";
 import axios from "axios";
-import { backendURL } from "../App";
 import { toast } from "react-toastify";
+
+const backendURL = import.meta.env.VITE_BACKEND_URL;
 
 const Add = ({ token }) => {
   const [image1, setImage1] = useState(false);
