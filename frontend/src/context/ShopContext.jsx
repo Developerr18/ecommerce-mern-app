@@ -3,7 +3,6 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 // import { products } from "../assets/assets";
-// import { backendURL } from "../App";
 
 export const ShopContext = createContext();
 const backendURL = import.meta.env.VITE_BACKEND_URL;
@@ -81,14 +80,16 @@ const ShopContextProvider = (props) => {
   };
 
   const getCartAmount = () => {
-    let totalAmount = 0;
-    for (const itemId in cartItems) {
-      const product = products.find((p) => p._id === itemId);
-      for (const size in cartItems[itemId]) {
-        totalAmount += product.price * cartItems[itemId][size];
+    if (products.length > 0) {
+      let totalAmount = 0;
+      for (const itemId in cartItems) {
+        const product = products.find((p) => p._id === itemId);
+        for (const size in cartItems[itemId]) {
+          totalAmount += product.price * cartItems[itemId][size];
+        }
       }
+      return totalAmount;
     }
-    return totalAmount;
   };
 
   const fetchProducts = async () => {
@@ -105,6 +106,22 @@ const ShopContextProvider = (props) => {
     }
   };
 
+  const getUserCart = async (token) => {
+    try {
+      const res = await axios.post(
+        `${backendURL}/api/cart/get`,
+        {},
+        { headers: { token } }
+      );
+      if (res.data.success) {
+        setCartItems(res.data.cartData);
+      }
+    } catch (err) {
+      console.log(err);
+      toast.error(err.message);
+    }
+  };
+
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -112,6 +129,7 @@ const ShopContextProvider = (props) => {
   useEffect(() => {
     if (!token && localStorage.getItem("token")) {
       setToken(localStorage.getItem("token"));
+      getUserCart(localStorage.getItem("token"));
     }
   }, []);
 
