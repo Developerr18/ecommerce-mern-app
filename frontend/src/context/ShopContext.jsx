@@ -17,6 +17,7 @@ const ShopContextProvider = (props) => {
   const currency = "$";
   const deliveryFee = 10;
 
+  ///////////////////////////////////////////////
   const addToCart = async (itemId, size) => {
     if (!size) {
       toast.error("Please Select Product Size!");
@@ -50,6 +51,7 @@ const ShopContextProvider = (props) => {
     }
   };
 
+  ////////////////////////////////////////
   const getCartCount = () => {
     let totalCount = 0;
     for (const itemId in cartItems) {
@@ -60,6 +62,7 @@ const ShopContextProvider = (props) => {
     return totalCount;
   };
 
+  ///////////////////////////////////////////////
   const updateCart = async (itemId, size, quantity) => {
     let cartItemsClone = structuredClone(cartItems);
     cartItemsClone[itemId][size] = quantity;
@@ -79,6 +82,7 @@ const ShopContextProvider = (props) => {
     }
   };
 
+  ////////////////////////////////////////
   const getCartAmount = () => {
     if (products.length > 0) {
       let totalAmount = 0;
@@ -92,6 +96,7 @@ const ShopContextProvider = (props) => {
     }
   };
 
+  /////////////////////////////////////////////
   const fetchProducts = async () => {
     try {
       const res = await axios.get(`${backendURL}/api/product/list`);
@@ -106,6 +111,7 @@ const ShopContextProvider = (props) => {
     }
   };
 
+  ///////////////////////////////////////////
   const getUserCart = async (token) => {
     try {
       const res = await axios.post(
@@ -133,6 +139,7 @@ const ShopContextProvider = (props) => {
     }
   }, []);
 
+  ///////////////////////////////////
   const value = {
     products,
     currency,
