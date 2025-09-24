@@ -1,6 +1,7 @@
 import { v2 as cloudinary } from "cloudinary";
 import ProductModel from "../models/productModel.js";
 
+////////////////////////////////////////////////
 // Controller function to add a new product
 const addProduct = async (req, res) => {
   try {
@@ -46,7 +47,7 @@ const addProduct = async (req, res) => {
       date: Date.now(),
     };
 
-    // Create and save a new product to document in MongoDB
+    // Create and save a new product in DB
     const product = new ProductModel(productData);
     await product.save();
     res.json({ success: true, message: "Product Added" });
@@ -56,6 +57,7 @@ const addProduct = async (req, res) => {
   }
 };
 
+////////////////////////////////////////////////
 const getProducts = async (req, res) => {
   try {
     const products = await ProductModel.find({});
@@ -66,6 +68,7 @@ const getProducts = async (req, res) => {
   }
 };
 
+////////////////////////////////////////////////
 const removeProduct = async (req, res) => {
   try {
     await ProductModel.findByIdAndDelete(req.body.id);
@@ -76,6 +79,7 @@ const removeProduct = async (req, res) => {
   }
 };
 
+////////////////////////////////////////////////
 const singleProduct = async (req, res) => {
   try {
     const { productId } = req.body;

@@ -64,7 +64,7 @@ const ShopContextProvider = (props) => {
 
   ///////////////////////////////////////////////
   const updateCart = async (itemId, size, quantity) => {
-    let cartItemsClone = structuredClone(cartItems);
+    const cartItemsClone = structuredClone(cartItems);
     cartItemsClone[itemId][size] = quantity;
     setCartItems(cartItemsClone);
 

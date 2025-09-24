@@ -3,7 +3,6 @@ import { useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { redirect } from "react-router-dom";
 
 const Login = () => {
   const [currentState, setCurrentState] = useState("Login");
